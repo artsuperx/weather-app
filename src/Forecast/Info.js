@@ -3,8 +3,11 @@ import format from 'date-fns/format';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import moon from './moon.svg';
+import sun from './sun.svg';
+
 const StInfo = styled.div`
-  background-color: #2caaef;
+  background-color: rgba(44, 170, 239, 0.5);
   color: #fff;
   padding: 30px 20px;
   border-top-right-radius: 5px;
@@ -29,6 +32,26 @@ const Place = styled.div``;
 
 const Time = styled.div``;
 
+const Weather = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Icon = styled.img`
+  width: 120px;
+  height: 70px;
+`;
+
+const Forecast = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+
+const Picture = styled.img`
+  width: 30px;
+  margin-right: 10px;
+`;
+
 const Description = styled.div`
   text-transform: capitalize;
 `;
@@ -37,6 +60,7 @@ const Info = ({ name, country, currentStatus }) => {
   const currentTime = format(new Date(), 'hh:mm a');
   const weather = currentStatus.weather[0];
   const { description, icon } = weather;
+  const picture = currentTime.indexOf('pm') > 0 ? sun : moon;
 
   return (
     <StInfo>
@@ -47,7 +71,13 @@ const Info = ({ name, country, currentStatus }) => {
           <Time>{currentTime}</Time>
         </Content>
       </Header>
-      <Description>{description}</Description>
+      <Weather>
+        <Icon src={`http://openweathermap.org/img/w/${icon}.png`} />
+      </Weather>
+      <Forecast>
+        <Picture src={picture} />
+        <Description>{description}</Description>
+      </Forecast>
     </StInfo>
   );
 };

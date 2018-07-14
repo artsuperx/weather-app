@@ -6,11 +6,11 @@ import Status from './Status';
 import List from './List';
 
 const StWeather = styled.div`
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   color: #414040;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  padding: 15px 35px;
+  padding: 15px 0px 15px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;

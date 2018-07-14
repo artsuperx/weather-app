@@ -5,7 +5,7 @@ import Forecast from './Forecast';
 
 const StApp = styled.div`
   height: 100vh;
-  background: url('https://www.pixelstalk.net/wp-content/uploads/2016/07/Weather-Background-Download-Free-620x349.jpg')
+  background: url('https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
     no-repeat;
   background-size: cover;
   display: flex;

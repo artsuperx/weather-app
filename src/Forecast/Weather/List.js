@@ -23,15 +23,19 @@ const Day = styled.div``;
 
 const Temperature = styled.div``;
 
+const Icon = styled.img``;
+
 const List = ({ weatherList }) => {
   const weather = weatherList.map(data => {
     const { dt_txt, weather, main, dt } = data;
     const temp = Math.round(main.temp);
     const icon = weather[0].icon;
     const day = format(dt_txt, 'ddd');
+
     return (
       <Forecast key={dt}>
         <Day>{day}</Day>
+        <Icon src={`http://openweathermap.org/img/w/${icon}.png`} />
         <Temperature>{temp}°</Temperature>
       </Forecast>
     );

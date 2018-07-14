@@ -5,12 +5,17 @@ import styled from 'styled-components';
 
 const StStatus = styled.div`
   display: flex;
-  align-items: center;
-  margin-right: 30px;
+  align-items: flex-end;
+  margin-right: 20px;
 `;
 
 const Content = styled.div`
   text-align: center;
+  margin-right: 20px;
+
+  :last-of-type {
+    margin-right: 0;
+  }
 `;
 
 const Temperature = styled.div`
@@ -19,6 +24,10 @@ const Temperature = styled.div`
 `;
 
 const Date = styled.div``;
+
+const Icon = styled.img`
+  width: 75px;
+`;
 
 const Description = styled.div``;
 
@@ -35,6 +44,7 @@ const Status = ({ currentStatus }) => {
         <Date>{date}</Date>
       </Content>
       <Content>
+        <Icon src={`http://openweathermap.org/img/w/${icon}.png`} />
         <Description>
           {speed}ms / {humidity}%
         </Description>
