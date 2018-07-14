@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Status from './Status';
 import List from './List';
@@ -9,6 +10,7 @@ const getWeatherOfDays = weatherList => {
 
   const weather = weatherList.filter(day => {
     if (day.dt === seconds) {
+      // прибавить кол-во секунд в 24 часах, чтобы взять следующий день
       seconds += 86400;
       return true;
     } else return false;
@@ -17,7 +19,7 @@ const getWeatherOfDays = weatherList => {
   return weather;
 };
 
-export default ({ weatherList }) => {
+const Weather = ({ weatherList }) => {
   const weather = getWeatherOfDays(weatherList);
 
   return (
@@ -27,3 +29,9 @@ export default ({ weatherList }) => {
     </div>
   );
 };
+
+Weather.propTypes = {
+  weatherList: PropTypes.array.isRequired
+};
+
+export default Weather;

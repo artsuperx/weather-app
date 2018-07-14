@@ -1,7 +1,8 @@
 import React from 'react';
 import format from 'date-fns/format';
+import PropTypes from 'prop-types';
 
-export default ({ weatherList }) => {
+const List = ({ weatherList }) => {
   const weather = weatherList.map(data => {
     const { dt_txt, weather, main, dt } = data;
     const temp = Math.round(main.temp);
@@ -11,3 +12,9 @@ export default ({ weatherList }) => {
   });
   return <ul>{weather}</ul>;
 };
+
+List.propTypes = {
+  weatherList: PropTypes.array.isRequired
+};
+
+export default List;
