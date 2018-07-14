@@ -23,8 +23,23 @@ class App extends Component {
     err: false
   };
 
+  componentWillMount() {
+    localStorage.getItem('forecast') &&
+      this.setState({
+        forecast: JSON.parse(localStorage.getItem('forecast')),
+        isFetching: false
+      });
+  }
+
   componentDidMount() {
-    this.fetchData();
+    if (!localStorage.getItem('forecast')) {
+      this.fetchData();
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('forecast', JSON.stringify(nextState.forecast));
+    localStorage.setItem('forecastDate', Date.now());
   }
 
   fetchData = () => {
