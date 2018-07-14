@@ -23,7 +23,7 @@ export default ({ weatherList }) => {
   return (
     <div>
       <Status currentStatus={weather[0]} />
-      <List />
+      <List weatherList={weather} />
     </div>
   );
 };
