@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Forecast from './components/Forecast';
+import Forecast from './Forecast';
 
 const API_URL =
   'http://api.openweathermap.org/data/2.5/forecast?id=524901&units=metric&APPID=e36f1b16a70d7bb256b5cf614d5ed572';
