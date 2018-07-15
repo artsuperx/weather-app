@@ -37,6 +37,8 @@ const List = ({ weatherList }) => {
     const description = weather[0].description;
     const day = format(dt_txt, 'ddd');
 
+    console.log(description);
+
     return (
       <Forecast key={dt}>
         <Day>{day}</Day>
