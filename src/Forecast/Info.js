@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import moon from './moon.svg';
 import sun from './sun.svg';
+import icons from './icons';
 
 const StInfo = styled.div`
   background-color: rgba(44, 170, 239, 0.5);
@@ -39,7 +40,9 @@ const Weather = styled.div`
 
 const Icon = styled.img`
   width: 120px;
-  height: 70px;
+  height: 110px;
+
+  fill: yellow;
 `;
 
 const Forecast = styled.div`
@@ -59,7 +62,7 @@ const Description = styled.div`
 const Info = ({ name, country, currentStatus }) => {
   const currentTime = format(new Date(), 'hh:mm a');
   const weather = currentStatus.weather[0];
-  const { description, icon } = weather;
+  const { description } = weather;
   const picture = currentTime.indexOf('am') > 0 ? sun : moon;
 
   return (
@@ -72,7 +75,7 @@ const Info = ({ name, country, currentStatus }) => {
         </Content>
       </Header>
       <Weather>
-        <Icon src={`http://openweathermap.org/img/w/${icon}.png`} />
+        <Icon src={icons[description]} />
       </Weather>
       <Forecast>
         <Picture src={picture} />

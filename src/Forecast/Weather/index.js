@@ -6,7 +6,7 @@ import Status from './Status';
 import List from './List';
 
 const StWeather = styled.div`
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #fff;
   color: #414040;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;

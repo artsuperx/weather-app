@@ -3,6 +3,8 @@ import format from 'date-fns/format';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import icons from '../icons';
+
 const StStatus = styled.div`
   display: flex;
   align-items: flex-end;
@@ -35,7 +37,7 @@ const Status = ({ currentStatus }) => {
   const { humidity, temp } = currentStatus.main;
   const speed = currentStatus.wind.speed;
   const date = format(currentStatus.dt_txt, 'dddd Do');
-  const icon = currentStatus.weather[0].icon;
+  const description = currentStatus.weather[0].description;
 
   return (
     <StStatus>
@@ -44,7 +46,7 @@ const Status = ({ currentStatus }) => {
         <Date>{date}</Date>
       </Content>
       <Content>
-        <Icon src={`http://openweathermap.org/img/w/${icon}.png`} />
+        <Icon src={icons[description]} />
         <Description>
           {speed}ms / {humidity}%
         </Description>

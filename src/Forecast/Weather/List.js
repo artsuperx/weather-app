@@ -3,6 +3,8 @@ import format from 'date-fns/format';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import icons from '../icons';
+
 const StList = styled.ul`
   margin: 0;
   padding: 0;
@@ -23,19 +25,22 @@ const Day = styled.div``;
 
 const Temperature = styled.div``;
 
-const Icon = styled.img``;
+const Icon = styled.img`
+  width: 35px;
+  margin: 15px 0;
+`;
 
 const List = ({ weatherList }) => {
   const weather = weatherList.map(data => {
     const { dt_txt, weather, main, dt } = data;
     const temp = Math.round(main.temp);
-    const icon = weather[0].icon;
+    const description = weather[0].description;
     const day = format(dt_txt, 'ddd');
 
     return (
       <Forecast key={dt}>
         <Day>{day}</Day>
-        <Icon src={`http://openweathermap.org/img/w/${icon}.png`} />
+        <Icon src={icons[description]} />
         <Temperature>{temp}°</Temperature>
       </Forecast>
     );
