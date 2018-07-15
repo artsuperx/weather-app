@@ -4,11 +4,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import icons from '../icons';
+import { minWidth } from '../../media';
 
 const StStatus = styled.div`
   display: flex;
   align-items: flex-end;
-  margin-right: 20px;
+  margin-bottom: 20px;
+
+  ${minWidth.md`
+    margin-right: 20px;
+    margin-bottom: 0;
+  `};
 `;
 
 const Content = styled.div`

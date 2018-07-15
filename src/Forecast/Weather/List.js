@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import icons from '../icons';
+import { minWidth } from '../../media';
 
 const StList = styled.ul`
   margin: 0;
@@ -19,6 +20,16 @@ const Forecast = styled.li`
   font-size: 18px;
   padding: 5px 15px;
   border-left: 1px solid #ccc;
+
+  :first-of-type {
+    border-left: none;
+  }
+
+  ${minWidth.md`
+    :first-of-type {
+      border-left: 1px solid #ccc;
+    }
+  `};
 `;
 
 const Day = styled.div``;
@@ -36,8 +47,6 @@ const List = ({ weatherList }) => {
     const temp = Math.round(main.temp);
     const description = weather[0].description;
     const day = format(dt_txt, 'ddd');
-
-    console.log(description);
 
     return (
       <Forecast key={dt}>

@@ -12,9 +12,6 @@ const StInfo = styled.div`
   padding: 30px 20px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVevigr_zP3XNgPIy1eOXnrD3kT4mZlIoMCRECHaLYxduvXIhlfA')
-    no-repeat;
-  background-size: cover;
 
   ${props =>
     props.color &&

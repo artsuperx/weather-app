@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Status from './Status';
 import List from './List';
+import { minWidth } from '../../media';
 
 const StWeather = styled.div`
   background-color: #fff;
@@ -14,6 +15,10 @@ const StWeather = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  ${minWidth.sm`
+    flex-direction: row;
+  `};
 `;
 
 /* Из 40 полученных объектов взять 1 для каждого дня */
