@@ -2,7 +2,7 @@
 
 ## Деплой версия
 
-https://build-rcqkrtilio.now.sh/
+https://build-yulpwysoau.now.sh/
 
 ### Используемые технологии
 
