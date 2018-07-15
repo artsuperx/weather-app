@@ -41,8 +41,8 @@ class App extends Component {
     const forecastDate = date && new Date(parseInt(date));
     const now = new Date();
 
-    const dataAge = Math.round((now - forecastDate) / (1000 * 60 * 60));
-    const tooOld = dataAge >= 3;
+    const dataAge = Math.round((now - forecastDate) / (1000 * 60));
+    const tooOld = dataAge >= 15;
 
     if (tooOld) {
       this.fetchData();
