@@ -36,6 +36,10 @@ export default {
     weather: showerRain,
     color: 'rgb(146, 163, 146, 0.7);'
   },
+  'moderate rain': {
+    weather: showerRain,
+    color: 'rgb(146, 163, 146, 0.4);'
+  },
   thunderstorm: {
     weather: thunderstorm,
     color: 'rgb(7, 35, 32, 0.6);'
