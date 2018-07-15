@@ -46,7 +46,7 @@ const Status = ({ currentStatus }) => {
         <Date>{date}</Date>
       </Content>
       <Content>
-        <Icon src={icons[description]} />
+        <Icon src={icons[description].weather} />
         <Description>
           {speed}ms / {humidity}%
         </Description>

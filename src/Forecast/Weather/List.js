@@ -40,7 +40,7 @@ const List = ({ weatherList }) => {
     return (
       <Forecast key={dt}>
         <Day>{day}</Day>
-        <Icon src={icons[description]} />
+        <Icon src={icons[description].weather} />
         <Temperature>{temp}°</Temperature>
       </Forecast>
     );

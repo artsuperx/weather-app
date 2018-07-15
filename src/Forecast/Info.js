@@ -1,18 +1,23 @@
 import React from 'react';
 import format from 'date-fns/format';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import moon from './moon.svg';
 import sun from './sun.svg';
 import icons from './icons';
 
 const StInfo = styled.div`
-  background-color: rgba(44, 170, 239, 0.5);
   color: #fff;
   padding: 30px 20px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+
+  ${props =>
+    props.color &&
+    css`
+      background-color: ${props.color};
+    `};
 `;
 
 const Header = styled.header`
@@ -41,8 +46,6 @@ const Weather = styled.div`
 const Icon = styled.img`
   width: 120px;
   height: 110px;
-
-  fill: yellow;
 `;
 
 const Forecast = styled.div`
@@ -66,7 +69,7 @@ const Info = ({ name, country, currentStatus }) => {
   const picture = currentTime.indexOf('am') > 0 ? sun : moon;
 
   return (
-    <StInfo>
+    <StInfo color={icons[description].color}>
       <Header>
         <Title>{name}</Title>
         <Content>
@@ -75,7 +78,7 @@ const Info = ({ name, country, currentStatus }) => {
         </Content>
       </Header>
       <Weather>
-        <Icon src={icons[description]} />
+        <Icon src={icons[description].weather} />
       </Weather>
       <Forecast>
         <Picture src={picture} />
