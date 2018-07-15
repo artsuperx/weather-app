@@ -60,7 +60,7 @@ const Info = ({ name, country, currentStatus }) => {
   const currentTime = format(new Date(), 'hh:mm a');
   const weather = currentStatus.weather[0];
   const { description, icon } = weather;
-  const picture = currentTime.indexOf('pm') > 0 ? sun : moon;
+  const picture = currentTime.indexOf('am') > 0 ? sun : moon;
 
   return (
     <StInfo>

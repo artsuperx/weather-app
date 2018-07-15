@@ -32,7 +32,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (!localStorage.getItem('forecast')) {
+    const date = localStorage.getItem('forecastDate');
+    const forecastDate = date && new Date(parseInt(date));
+    const now = new Date();
+
+    const dataAge = Math.round((now - forecastDate) / (1000 * 60 * 60));
+    const tooOld = dataAge >= 3;
+
+    if (tooOld) {
       this.fetchData();
     }
   }
@@ -43,6 +50,12 @@ class App extends Component {
   }
 
   fetchData = () => {
+    this.setState({
+      isFetching: true,
+      forecast: [],
+      err: false
+    });
+
     fetch(API_URL)
       .then(res => res.json())
       .then(forecast =>
