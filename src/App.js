@@ -19,7 +19,7 @@ const Spinner = styled.img`
 `;
 
 const API_URL =
-  'http://api.openweathermap.org/data/2.5/forecast?id=524901&units=metric&APPID=e36f1b16a70d7bb256b5cf614d5ed572';
+  'https://api.openweathermap.org/data/2.5/forecast?id=524901&units=metric&APPID=e36f1b16a70d7bb256b5cf614d5ed572';
 
 class App extends Component {
   state = {
