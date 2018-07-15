@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Forecast from './Forecast';
+import spinner from './spinner.svg';
 
 const StApp = styled.div`
   height: 100vh;
@@ -11,6 +12,10 @@ const StApp = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Spinner = styled.img`
+  width: 80px;
 `;
 
 const API_URL =
@@ -75,7 +80,7 @@ class App extends Component {
     return (
       <StApp>
         {isFetching ? (
-          <div>Loading..</div>
+          <Spinner src={spinner} />
         ) : (
           <Forecast forecast={forecast} err={err} />
         )}
