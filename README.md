@@ -2,7 +2,7 @@
 
 ## Деплой версия
 
-https://build-yulpwysoau.now.sh/
+https://build-fmjafykson.now.sh/
 
 ### Используемые технологии
 

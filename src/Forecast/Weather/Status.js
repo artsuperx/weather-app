@@ -43,7 +43,7 @@ const Status = ({ currentStatus }) => {
   const { humidity, temp } = currentStatus.main;
   const speed = currentStatus.wind.speed;
   const date = format(currentStatus.dt_txt, 'dddd Do');
-  const description = currentStatus.weather[0].description;
+  const icon = currentStatus.weather[0].main;
 
   return (
     <StStatus>
@@ -52,7 +52,7 @@ const Status = ({ currentStatus }) => {
         <Date>{date}</Date>
       </Content>
       <Content>
-        <Icon src={icons[description].weather} />
+        <Icon src={icons[icon].weather} />
         <Description>
           {speed}ms / {humidity}%
         </Description>

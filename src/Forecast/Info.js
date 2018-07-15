@@ -3,8 +3,6 @@ import format from 'date-fns/format';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import moon from './moon.svg';
-import sun from './sun.svg';
 import icons from './icons';
 
 const StInfo = styled.div`
@@ -65,11 +63,10 @@ const Description = styled.div`
 const Info = ({ name, country, currentStatus }) => {
   const currentTime = format(new Date(), 'hh:mm a');
   const weather = currentStatus.weather[0];
-  const { description } = weather;
-  const picture = currentTime.indexOf('am') > 0 ? sun : moon;
+  const { description, main, icon } = weather;
 
   return (
-    <StInfo color={icons[description].color}>
+    <StInfo color={icons[main].color}>
       <Header>
         <Title>{name}</Title>
         <Content>
@@ -78,10 +75,10 @@ const Info = ({ name, country, currentStatus }) => {
         </Content>
       </Header>
       <Weather>
-        <Icon src={icons[description].weather} />
+        <Icon src={icons[main].weather} />
       </Weather>
       <Forecast>
-        <Picture src={picture} />
+        <Picture src={`http://openweathermap.org/img/w/${icon}.png`} />
         <Description>{description}</Description>
       </Forecast>
     </StInfo>

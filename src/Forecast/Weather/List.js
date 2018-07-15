@@ -45,15 +45,13 @@ const List = ({ weatherList }) => {
   const weather = weatherList.map(data => {
     const { dt_txt, weather, main, dt } = data;
     const temp = Math.round(main.temp);
-    const description = weather[0].description;
+    const icon = weather[0].main;
     const day = format(dt_txt, 'ddd');
-
-    console.log(description)
 
     return (
       <Forecast key={dt}>
         <Day>{day}</Day>
-        <Icon src={icons[description].weather} />
+        <Icon src={icons[icon].weather} />
         <Temperature>{temp}°</Temperature>
       </Forecast>
     );
